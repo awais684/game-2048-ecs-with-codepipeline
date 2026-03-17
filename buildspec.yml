@@ -10,13 +10,13 @@ phases:
       - echo Building the Docker image...
       - docker build -t 2048-game .
       - echo Tagging the Docker image...
-      - docker tag 2048-game:latest 148524399424.dkr.ecr.us-east-1.amazonaws.com/new-repo:latest
+      - docker tag 2048-game:latest 148524399424.dkr.ecr.us-east-1.amazonaws.com/newrepo:latest
   post_build:
     commands:
       - echo Pushing the Docker image to Amazon ECR...
-      - docker push 148524399424.dkr.ecr.us-east-1.amazonaws.com/new-repo:latest
+      - docker push 148524399424.dkr.ecr.us-east-1.amazonaws.com/newrepo:latest
       - echo Creating imagedefinitions.json file for ECS deployment...
-      - echo '[{"name":"cont1","imageUri":"148524399424.dkr.ecr.us-east-1.amazonaws.com/new-repo:latest"}]' > imagedefinitions.json
+      - echo '[{"name":"cont1","imageUri":"148524399424.dkr.ecr.us-east-1.amazonaws.com/newrepo:latest"}]' > imagedefinitions.json
 artifacts:
   files:
-    - imagedefinitions.json
+    - imagedefinitions.json 
